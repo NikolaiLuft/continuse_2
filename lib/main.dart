@@ -1,4 +1,5 @@
 import 'package:continuse_2/src/features/authentification/presentation/loginscreen.dart';
+import 'package:continuse_2/src/features/authentification/presentation/startscreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
