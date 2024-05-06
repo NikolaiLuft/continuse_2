@@ -112,7 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             //     ));
                           },
                           child: const Text(
-                            "Passwort vergessen",
+                            "Passwort vergessen?",
                             style: TextStyle(
                               textBaseline: TextBaseline.alphabetic,
                               fontFamily: 'SF Regular',
@@ -154,14 +154,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           //     ));
                         },
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFFD3D3D3),
+                            backgroundColor: Color(0xFFFE9C24),
                             shadowColor: Colors.black.withOpacity(1)),
                         child: Container(
                           child: const Text(
                             "Login",
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.white,
                               fontSize: 15,
                               fontFamily: "SF Pro",
                               fontWeight: FontWeight.bold,

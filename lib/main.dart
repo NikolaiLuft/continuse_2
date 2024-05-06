@@ -1,4 +1,5 @@
 import 'package:continuse_2/src/features/authentification/presentation/loginscreen.dart';
+import 'package:continuse_2/src/features/authentification/presentation/registration.dart';
 import 'package:continuse_2/src/features/authentification/presentation/startscreen.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: LoginScreen(),
+      home: RegistrationScreen(),
     );
   }
 }
