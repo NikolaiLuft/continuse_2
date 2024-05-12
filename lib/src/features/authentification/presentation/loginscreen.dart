@@ -1,3 +1,4 @@
+import 'package:continuse_2/src/features/authentification/presentation/registration.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -291,21 +292,25 @@ class _LoginScreenState extends State<LoginScreen> {
                             //       builder: (context) => RegistrationScreen(),
                             //     ));
                           },
-                          child: Text("Registrieren",
-                              style: TextStyle(
-                                shadows: const [
-                                  Shadow(
-                                      color: Colors.black,
-                                      offset: Offset(0, -5))
-                                ],
-                                color: Colors.transparent,
-                                fontSize: 17,
-                                fontFamily: "SF Pro",
-                                fontWeight: FontWeight.w700,
-                                decoration: TextDecoration.underline,
-                                decorationColor: Colors.black,
-                                decorationThickness: 1.35,
-                              ))),
+                          child: InkWell(onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: ((context) => RegistrationScreen())));
+                            },
+                            child: Text("Registrieren",
+                                style: TextStyle(
+                                  shadows: const [
+                                    Shadow(
+                                        color: Colors.black,
+                                        offset: Offset(0, -5))
+                                  ],
+                                  color: Colors.transparent,
+                                  fontSize: 17,
+                                  fontFamily: "SF Pro",
+                                  fontWeight: FontWeight.w700,
+                                  decoration: TextDecoration.underline,
+                                  decorationColor: Colors.black,
+                                  decorationThickness: 1.35,
+                                )),
+                          )),
                     ]),
               ],
             ),
