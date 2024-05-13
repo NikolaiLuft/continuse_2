@@ -2,6 +2,8 @@ import 'package:continuse_2/src/features/authentification/presentation/registrat
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'homescreen.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -145,6 +147,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       child: ElevatedButton(
                         onPressed: () {
+                          child: InkWell (onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: ((context) => HomeScreen())));
+                            });
                           // TODO: login logik einbauen
                           // Navigator.pushReplacement(
                           //     context,

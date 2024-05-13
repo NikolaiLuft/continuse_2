@@ -33,14 +33,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   Text('Registrieren',
                       style: TextStyle(
                           shadows: const [
-                            Shadow(color: Colors.white, offset: Offset(0, -5))
+                            Shadow(color: Color.fromARGB(255, 14, 1, 1), offset: Offset(0, -5))
                           ],
                           color: Colors.transparent,
                           fontSize: 24,
                           fontWeight: FontWeight.w500,
                           fontFamily: 'SF Regular',
                           decoration: TextDecoration.underline,
-                          decorationColor: Color(0xFFFFFFFF),
+                          decorationColor: Color.fromARGB(255, 0, 0, 0),
                           decorationThickness: 1.35)),
                   const SizedBox(height: 25),
                   Prounouns(text: 'Anrede'),
@@ -91,7 +91,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                   style: TextStyle(
                                     shadows: [
                                       Shadow(
-                                          color: Colors.white,
+                                          color: Color.fromARGB(255, 0, 0, 0),
                                           offset: Offset(0, -5))
                                     ],
                                     color: Colors.transparent,
@@ -99,7 +99,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                     fontFamily: "SF Pro",
                                     fontWeight: FontWeight.bold,
                                     decoration: TextDecoration.underline,
-                                    decorationColor: Color(0xFFFFFFFF),
+                                    decorationColor: Color.fromARGB(255, 0, 0, 0),
                                     decorationThickness: 1.35,
                                   )),
                             )),
