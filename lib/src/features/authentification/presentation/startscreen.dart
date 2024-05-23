@@ -1,41 +1,61 @@
-import 'package:flutter/cupertino.dart';
+
+import 'package:continuse_2/src/features/authentification/presentation/widget/logowidget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class StartScreen extends StatefulWidget {
-  const StartScreen({super.key});
-
+  const StartScreen({
+    super.key
+  });
+  // Attribute
+  // final DatabaseRepository databaseRepository;
+  // // Konstruktor
+  // const StartScreen({super.key, required this.databaseRepository});
   @override
-  State<StartScreen> createState() => _startScreenState();
+  State<StartScreen> createState() => _StartScreenState();
 }
-
-// ignore: camel_case_types
-class _startScreenState extends State<StartScreen> {
+class _StartScreenState extends State<StartScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 393,
-      height: 852,
-      padding: const EdgeInsets.symmetric(horizontal: 4),
-      clipBehavior: Clip.antiAlias,
-      decoration: BoxDecoration(color: Colors.white),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Container(
-            width: 385,
-            height: 136,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(""),
-                fit: BoxFit.fill,
-              ),
+    return Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+            backgroundColor: Colors.white,
+            leading: IconButton(
+                onPressed: () {
+                  // Navigator.pushReplacement(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //       builder: (context) => ViewBankaccount(
+                  //             databaseRepository: widget.databaseRepository,
+                  //           )),
+                  // );
+                },
+                icon: const Icon(
+                  Icons.arrow_back,
+                  size: 24,
+                ))),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Form(
+                child: Column(children: [
+              const SizedBox(height: 0),
+              LogoWidget(width: 250, height: 150),
+              const SizedBox(height: 20),
+              Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                const SizedBox(width: 10)
+                 ], ),
+               ], ),
             ),
           ),
-        ],
-      ),
-    );
-  }
-}
+        ));
+  }}  
+
+
+
+
+
+
+
+
+

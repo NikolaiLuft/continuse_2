@@ -1,5 +1,6 @@
 
 
+import 'package:continuse_2/src/data/mock_database.dart';
 import 'package:continuse_2/src/features/authentification/presentation/loginscreen.dart';
 import 'package:continuse_2/src/features/authentification/presentation/widget/continusebutton.dart';
 import 'package:continuse_2/src/features/authentification/presentation/widget/logowidget.dart';
@@ -8,7 +9,7 @@ import 'package:continuse_2/src/features/authentification/presentation/widget/re
 import 'package:flutter/material.dart';
 
 class RegistrationScreen extends StatefulWidget {
-  const RegistrationScreen({super.key});
+  const RegistrationScreen(MockDatabase mockdb, {super.key});
 
   @override
   State<RegistrationScreen> createState() => _RegistrationScreenState();
@@ -21,7 +22,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       body: Container(
         width: 393,
         height: 852,
-        decoration: const BoxDecoration(color: Color.fromARGB(255, 111, 111, 112)),
+        decoration: const BoxDecoration(color: Colors.white),
         child: Padding(
             padding: const EdgeInsets.all(10),
             child: SingleChildScrollView(
@@ -30,9 +31,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   const SizedBox(height: 55),
                   LogoWidget(width: 217, height: 150),
                   const SizedBox(height: 10),
-                  Text('Registrieren',
+                  const Text('Registrieren',
                       style: TextStyle(
-                          shadows: const [
+                          shadows: [
                             Shadow(color: Color.fromARGB(255, 14, 1, 1), offset: Offset(0, -5))
                           ],
                           color: Colors.transparent,
@@ -44,13 +45,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           decorationThickness: 1.35)),
                   const SizedBox(height: 25),
                   Prounouns(text: 'Anrede'),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   const SizedBox(height: 15),
                   RegistrationsText(text: 'Vorname'),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   const SizedBox(height: 10),
                   RegistrationsText(text: 'Nachname'),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   const SizedBox(height: 10),
                   RegistrationsText(
                     text: 'Geburtsdatum',
@@ -61,10 +62,22 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       color: const Color(0x72010000).withOpacity(0.45),
                     ),
                   ),
-                  SizedBox(height: 5),
-                  SizedBox(height: 10),
+                  SizedBox(
+                    height: 55,
+                    child: Row(
+                      children: [
+                      RegistrationsText(text: 'PLZ',width: 0.25,),
+                    const SizedBox(width: 10,),
+                    
+                    RegistrationsText(text: 'Wohnort',width: 0.45,),
+                   
+                                    ]),
+                  ),
+                  const SizedBox(height: 5),
+     
+                  const SizedBox(height: 10),
                   RegistrationsText(text: 'E-Mail Adresse'),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   const SizedBox(height: 90),
                   // ContinuseButton(
                   //   navigationWidget: PasswortAddScreen(),
@@ -72,7 +85,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   //   width: 247,
                   //   height: 50,
                   // ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -85,7 +98,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         // //           ));
                             },
                             child: InkWell (onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: ((context) => LoginScreen())));
+                              Navigator.push(context, MaterialPageRoute(builder: ((context) => const LoginScreen())));
                             },
                               child: const Text("Zurück zur Anmeldung",
                                   style: TextStyle(
@@ -105,7 +118,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             )),
                       ])
                 ]),
-              ),
+                                       ),
             )),
       ),
     );

@@ -1,4 +1,4 @@
-import 'product.dart';
+import '../features/products/product.dart';
 
 class User {
   String uid;

@@ -19,11 +19,11 @@ class _ProunounsState extends State<Prounouns> {
         child: Text(
           widget.text,
           style: const TextStyle(
-            color: Colors.white,
+            color: Color.fromARGB(255, 3, 3, 3),
             fontSize: 14,
             fontWeight: FontWeight.w400,
             decoration: TextDecoration.underline,
-            decorationColor: Color(0xFFFFFFFF),
+            decorationColor: Color.fromARGB(255, 0, 0, 0),
             decorationThickness: 1.35,
           ),
         ),

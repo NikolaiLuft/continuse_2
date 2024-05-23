@@ -1,8 +1,10 @@
+import 'package:continuse_2/src/data/mock_database.dart';
 import 'package:continuse_2/src/features/authentification/presentation/registration.dart';
+import 'package:continuse_2/src/features/home/presentation/homescreen.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'homescreen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -147,9 +149,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       child: ElevatedButton(
                         onPressed: () {
-                          child: InkWell (onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: ((context) => HomeScreen())));
-                            });
+                           
+                              Navigator.push(context, MaterialPageRoute(builder: ((context) => HomeScreen(MockDatabase()))));
+                            },
                           // TODO: login logik einbauen
                           // Navigator.pushReplacement(
                           //     context,
@@ -158,7 +160,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           //         databaseRepository: widget.databaseRepository,
                           //       ),
                           //     ));
-                        },
+                        
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Color(0xFFFE9C24),
                             shadowColor: Colors.black.withOpacity(1)),
@@ -298,7 +300,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             //     ));
                           },
                           child: InkWell(onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: ((context) => RegistrationScreen())));
+                              Navigator.push(context, MaterialPageRoute(builder: ((context) => RegistrationScreen(MockDatabase()))));
                             },
                             child: Text("Registrieren",
                                 style: TextStyle(

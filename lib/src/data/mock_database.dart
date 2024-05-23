@@ -1,4 +1,4 @@
-import '../domain/product.dart';
+import '../features/products/product.dart';
 import '../domain/user.dart';
 import 'database_repository.dart';
 
@@ -13,20 +13,47 @@ class MockDatabase implements DatabaseRepository {
     products: [],
   );
 
-  List<Product> products = [];
+  List<Product> products = [
+    Product(
+      id: '1',
+      sellerUid: '1',
+      title: "Toller TIsch",
+      description: "Wie neu",
+      isSwap: true,
+      isReserved: false,
+      pictures: [],
+    ),
+    Product(
+      id: '2',
+      sellerUid: '1',
+      title: "Kaputten Stuhl",
+      description: "Wie neu",
+      isSwap: true,
+      isReserved: false,
+      pictures: [],
+    ),
+    Product(
+      id: '3',
+      sellerUid: '1',
+      title: "Runder Reifen",
+      description: "Wie neu",
+      isSwap: true,
+      isReserved: false,
+      pictures: [],
+    ),
+  ];
 
   @override
   void addProduct(Product product) {
-    currUser.products.add(product);
     products.add(product);
   }
 
   @override
   void deleteProduct(Product product) {
-    currUser.products.remove(product);
     products.remove(product);
   }
 
+  @override
   List<Product> getAllProduct() {
     return products;
   }
