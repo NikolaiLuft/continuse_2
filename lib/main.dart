@@ -1,11 +1,12 @@
+import 'package:continuse_2/firebase_options.dart';
 import 'package:continuse_2/src/data/mock_database.dart';
-import 'package:continuse_2/src/features/authentification/presentation/loginscreen.dart';
 import 'package:continuse_2/src/features/authentification/presentation/registration.dart';
-import 'package:continuse_2/src/features/authentification/presentation/startscreen.dart';
-import 'package:continuse_2/src/features/home/presentation/homescreen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   MockDatabase mockdb = MockDatabase();
   runApp(MainApp(mockdb));
 }
@@ -15,9 +16,8 @@ class MainApp extends StatelessWidget {
   MainApp(this.mockdb, {super.key});
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       home: RegistrationScreen(mockdb),
     );
   }
-
 }

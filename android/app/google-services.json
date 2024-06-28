@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "501089934621",
+    "project_id": "continuse-2",
+    "storage_bucket": "continuse-2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:501089934621:android:f341713869cc97a950d5f4",
+        "android_client_info": {
+          "package_name": "com.example.continuse_2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4PEGQBg90oIthu5nzSCUb2GUphswy95o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
