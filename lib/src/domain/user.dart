@@ -18,4 +18,28 @@ class User {
     required this.products,
   });
 
+  // toMap Methode
+  Map<String, dynamic> toMap() {
+    return {
+      'uid': uid,
+      'email': email,
+      'userName': userName,
+      'password': password,
+      'birthday': birthday.toIso8601String(),
+      'products': products.map((product) => product.toMap()).toList(),
+    };
+  }
+
+  // fromMap Methode
+  factory User.fromMap(Map<String, dynamic> map) {
+    return User(
+      uid: map['uid'],
+      email: map['email'],
+      userName: map['userName'],
+      password: map['password'],
+      birthday: DateTime.parse(map['birthday']),
+      products:
+          List<Product>.from(map['products']?.map((x) => Product.fromMap(x))),
+    );
+  }
 }
