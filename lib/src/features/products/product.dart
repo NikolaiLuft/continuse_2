@@ -14,12 +14,16 @@ class Product {
   Product({
     required this.id,
     required this.sellerUid,
-    required this.title, 
+    required this.title,
     required this.description,
     required this.isSwap,
     required this.isReserved,
     required this.pictures,
   });
+
+  toMap() {}
+
+  static fromMap(x) {}
 }
 
 // Klasse gibts dann in Flutter

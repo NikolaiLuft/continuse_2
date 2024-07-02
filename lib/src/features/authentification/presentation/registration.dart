@@ -1,10 +1,6 @@
-
-
 import 'package:continuse_2/src/data/mock_database.dart';
 import 'package:continuse_2/src/features/authentification/presentation/loginscreen.dart';
-import 'package:continuse_2/src/features/authentification/presentation/widget/continusebutton.dart';
 import 'package:continuse_2/src/features/authentification/presentation/widget/logowidget.dart';
-import 'package:continuse_2/src/features/authentification/presentation/widget/pronouns.dart';
 import 'package:continuse_2/src/features/authentification/presentation/widget/registrationtext.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +24,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             const Text('Registrieren',
                 style: TextStyle(
                     shadows: [
-                      Shadow(color: Color.fromARGB(255, 14, 1, 1), offset: Offset(0, -5))
+                      Shadow(
+                          color: Color.fromARGB(255, 14, 1, 1),
+                          offset: Offset(0, -5))
                     ],
                     color: Colors.transparent,
                     fontSize: 24,
@@ -41,12 +39,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               padding: const EdgeInsets.only(left: 16, right: 16, bottom: 8),
               child: RegistrationsText(text: 'Vorname'),
             ),
-            
+
             Padding(
               padding: const EdgeInsets.only(left: 16, right: 16, bottom: 8),
               child: RegistrationsText(text: 'Nachname'),
             ),
-            
+
             Padding(
               padding: const EdgeInsets.only(left: 16, right: 16, bottom: 8),
               child: RegistrationsText(
@@ -61,17 +59,22 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             ),
             SizedBox(
               height: 55,
-              child: Row(
-                children: [
-                RegistrationsText(text: 'PLZ',width: 0.25,),
-              const SizedBox(width: 10,),
-              
-              RegistrationsText(text: 'Wohnort',width: 0.69,),
-             
-                              ]),
+              child: Row(children: [
+                RegistrationsText(
+                  text: 'PLZ',
+                  width: 0.25,
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                RegistrationsText(
+                  text: 'Wohnort',
+                  width: 0.69,
+                ),
+              ]),
             ),
             const SizedBox(height: 5),
-       
+
             const SizedBox(height: 10),
             RegistrationsText(text: 'E-Mail Adresse'),
             const SizedBox(height: 5),
@@ -83,39 +86,41 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             //   height: 50,
             // ),
             const SizedBox(height: 10),
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  TextButton(
-                      onPressed: () {
-                  //       Navigator.pushReplacement(
-                  // //           context,
-                  // //           MaterialPageRoute(
-                  // //             builder: (context) => LoginScreen(),
-                  // //           ));
-                      },
-                      child: InkWell (onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: ((context) => const LoginScreen())));
-                      },
-                        child: const Text("Zurück zur Anmeldung",
-                            style: TextStyle(
-                              shadows: [
-                                Shadow(
-                                    color: Color.fromARGB(255, 0, 0, 0),
-                                    offset: Offset(0, -5))
-                              ],
-                              color: Colors.transparent,
-                              fontSize: 15,
-                              fontFamily: "SF Pro",
-                              fontWeight: FontWeight.bold,
-                              decoration: TextDecoration.underline,
-                              decorationColor: Color.fromARGB(255, 0, 0, 0),
-                              decorationThickness: 1.35,
-                            )),
-                      )),
-                ])
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+              TextButton(
+                  onPressed: () {
+                    //       Navigator.pushReplacement(
+                    // //           context,
+                    // //           MaterialPageRoute(
+                    // //             builder: (context) => LoginScreen(),
+                    // //           ));
+                  },
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => LoginScreen())));
+                    },
+                    child: const Text("Zurück zur Anmeldung",
+                        style: TextStyle(
+                          shadows: [
+                            Shadow(
+                                color: Color.fromARGB(255, 0, 0, 0),
+                                offset: Offset(0, -5))
+                          ],
+                          color: Colors.transparent,
+                          fontSize: 15,
+                          fontFamily: "SF Pro",
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.underline,
+                          decorationColor: Color.fromARGB(255, 0, 0, 0),
+                          decorationThickness: 1.35,
+                        )),
+                  )),
+            ])
           ]),
-                                 ),
+        ),
       ),
     );
   }

@@ -1,6 +1,5 @@
 import 'package:continuse_2/firebase_options.dart';
 import 'package:continuse_2/src/data/mock_database.dart';
-import 'package:continuse_2/src/features/authentification/presentation/registration.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +16,9 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: RegistrationScreen(mockdb),
+      home: HomeScreen(mockdb),
     );
   }
+
+  HomeScreen(MockDatabase mockdb) {}
 }

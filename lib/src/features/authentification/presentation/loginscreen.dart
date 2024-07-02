@@ -1,10 +1,7 @@
+import 'package:continuse_2/src/data/auth_repository.dart';
 import 'package:continuse_2/src/data/mock_database.dart';
 import 'package:continuse_2/src/features/authentification/presentation/registration.dart';
-import 'package:continuse_2/src/features/home/presentation/homescreen.dart';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -15,8 +12,13 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool showPassword = false;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    final authRepository = Provider.of<AuthRepository>(context);
+
     return Scaffold(
       body: Container(
         width: 393,
@@ -43,6 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 54,
                   width: 372,
                   child: TextFormField(
+                    controller: _emailController,
                     style: const TextStyle(
                       textBaseline: TextBaseline.alphabetic,
                       fontFamily: 'SF Regular',
@@ -70,6 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 54,
                   width: 372,
                   child: TextFormField(
+                    controller: _passwordController,
                     obscureText: !showPassword,
                     enableSuggestions: false,
                     autocorrect: false,
@@ -122,11 +126,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               textBaseline: TextBaseline.alphabetic,
                               fontFamily: 'SF Regular',
                               decoration: TextDecoration.underline,
-                              decorationColor:
-                                  Colors.black,
+                              decorationColor: Colors.black,
                               fontSize: 10,
                               fontWeight: FontWeight.normal,
-                              color:Colors.black,
+                              color: Colors.black,
                             ),
                             textAlign: TextAlign.right,
                           ))
@@ -142,27 +145,20 @@ class _LoginScreenState extends State<LoginScreen> {
                           BoxShadow(
                             color: Colors.black.withOpacity(0.65),
                             blurRadius: 15,
-                            offset: Offset(0, 15),
+                            offset: const Offset(0, 15),
                           ),
                         ],
                         borderRadius: BorderRadius.circular(30),
                       ),
                       child: ElevatedButton(
-                        onPressed: () {
-                           
-                              Navigator.push(context, MaterialPageRoute(builder: ((context) => HomeScreen(MockDatabase()))));
-                            },
-                          // TODO: login logik einbauen
-                          // Navigator.pushReplacement(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //       builder: (context) => OverviewScreen(
-                          //         databaseRepository: widget.databaseRepository,
-                          //       ),
-                          //     ));
-                        
+                        onPressed: () async {
+                          await authRepository.signIn(
+                            _emailController.text,
+                            _passwordController.text,
+                          );
+                        },
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFFFE9C24),
+                            backgroundColor: const Color(0xFFFE9C24),
                             shadowColor: Colors.black.withOpacity(1)),
                         child: Container(
                           child: const Text(
@@ -184,7 +180,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Expanded(
                     child: Container(
                         margin: const EdgeInsets.only(left: 10.0, right: 20.0),
-                        child: Divider(
+                        child: const Divider(
                           color: Colors.black,
                           height: 36,
                         )),
@@ -198,30 +194,29 @@ class _LoginScreenState extends State<LoginScreen> {
                       fontFamily: "SF Pro",
                       fontWeight: FontWeight.w400,
                       decoration: TextDecoration.underline,
-                      decorationColor:
-                          Colors.black,
+                      decorationColor: Colors.black,
                       wordSpacing: double.infinity,
                     ),
                   ),
                   Expanded(
                     child: Container(
                         margin: const EdgeInsets.only(left: 20.0, right: 10.0),
-                        child: Divider(
+                        child: const Divider(
                           color: Colors.black,
                           height: 36,
                         )),
                   ),
                 ]),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 SizedBox(
                     width: 300,
                     child: ElevatedButton.icon(
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.apple,
                         color: Colors.white,
                         size: 30,
                       ),
-                      label: Text(
+                      label: const Text(
                         "Sign In with Apple",
                         style: TextStyle(
                           color: Colors.white,
@@ -241,17 +236,16 @@ class _LoginScreenState extends State<LoginScreen> {
                         //     ));
                       },
                       style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.only(top: 10, bottom: 10),
+                        padding: const EdgeInsets.only(top: 10, bottom: 10),
                         backgroundColor: Colors.black,
                       ),
                     )),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 SizedBox(
                     width: 300,
                     height: 45,
                     child: ElevatedButton.icon(
-                      icon: Image.asset("assets/googleimage.png",
-                          height: 20),
+                      icon: Image.asset("assets/googleimage.png", height: 20),
                       label: Text(
                         "Sign In with Google",
                         style: TextStyle(
@@ -272,16 +266,16 @@ class _LoginScreenState extends State<LoginScreen> {
                         //     ));
                       },
                       style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.only(top: 10, bottom: 10),
+                        padding: const EdgeInsets.only(top: 10, bottom: 10),
                         backgroundColor: Colors.grey.shade200,
                       ),
                     )),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
                       Container(
-                        child: Text(
+                        child: const Text(
                           "Du hast noch keinen Account?",
                           style: TextStyle(
                             color: Colors.black,
@@ -299,12 +293,17 @@ class _LoginScreenState extends State<LoginScreen> {
                             //       builder: (context) => RegistrationScreen(),
                             //     ));
                           },
-                          child: InkWell(onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: ((context) => RegistrationScreen(MockDatabase()))));
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) =>
+                                          RegistrationScreen(MockDatabase()))));
                             },
-                            child: Text("Registrieren",
+                            child: const Text("Registrieren",
                                 style: TextStyle(
-                                  shadows: const [
+                                  shadows: [
                                     Shadow(
                                         color: Colors.black,
                                         offset: Offset(0, -5))
