@@ -1,5 +1,5 @@
-import '../features/products/product.dart';
 import '../domain/user.dart';
+import '../features/products/product.dart';
 import 'database_repository.dart';
 
 class MockDatabase implements DatabaseRepository {
@@ -17,7 +17,7 @@ class MockDatabase implements DatabaseRepository {
     Product(
       id: '1',
       sellerUid: '1',
-      title: "Toller TIsch",
+      title: "Toller Tisch",
       description: "Wie neu",
       isSwap: true,
       isReserved: false,
