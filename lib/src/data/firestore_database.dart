@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:continuse_2/src/data/database_repository.dart';
 import 'package:continuse_2/src/features/products/product.dart';
 
@@ -22,5 +23,3 @@ class FirestoreDatabase implements DatabaseRepository {
     throw UnimplementedError();
   }
 }
-
-class FirebaseFirestore {}

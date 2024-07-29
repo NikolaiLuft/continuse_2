@@ -1,6 +1,7 @@
 import 'package:continuse_2/src/data/auth_repository.dart';
 import 'package:continuse_2/src/data/mock_database.dart';
 import 'package:continuse_2/src/features/authentification/presentation/registration.dart';
+import 'package:continuse_2/src/features/home/presentation/homescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -157,6 +158,12 @@ class _LoginScreenState extends State<LoginScreen> {
                             _emailController.text,
                             _passwordController.text,
                           );
+                          print("Login Erfolgreich!");
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Homescreen(),
+                              ));
                         },
                         style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFFFE9C24),
