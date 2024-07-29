@@ -154,6 +154,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       child: ElevatedButton(
                         onPressed: () async {
+                          print("Hello");
                           await authRepository.signIn(
                             _emailController.text,
                             _passwordController.text,
@@ -162,7 +163,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const Homescreen(),
+                                builder: (context) => HomeScreen(),
                               ));
                         },
                         style: ElevatedButton.styleFrom(
