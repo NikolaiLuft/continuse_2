@@ -1,11 +1,10 @@
-import 'package:continuse_2/src/data/mock_database.dart';
 import 'package:continuse_2/src/features/authentification/presentation/loginscreen.dart';
 import 'package:continuse_2/src/features/authentification/presentation/widget/logowidget.dart';
 import 'package:continuse_2/src/features/authentification/presentation/widget/registrationtext.dart';
 import 'package:flutter/material.dart';
 
 class RegistrationScreen extends StatefulWidget {
-  const RegistrationScreen(MockDatabase mockdb, {super.key});
+  const RegistrationScreen({super.key});
 
   @override
   State<RegistrationScreen> createState() => _RegistrationScreenState();
@@ -100,7 +99,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: ((context) => LoginScreen())));
+                              builder: ((context) => const LoginScreen())));
                     },
                     child: const Text("Zurück zur Anmeldung",
                         style: TextStyle(
@@ -123,5 +122,33 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         ),
       ),
     );
+  }
+
+  String? validateVn(String? input) {
+    if (input == null || input.isEmpty) {
+      return 'Bitte Vorname eingeben';
+    }
+    return null;
+  }
+
+  String? validateNn(String? input) {
+    if (input == null || input.isEmpty) {
+      return 'Bitte Nachname eingeben';
+    }
+    return null;
+  }
+
+  String? validateGb(String? input) {
+    if (input == null || input.isEmpty) {
+      return 'Bitte Geburtsdatum eingeben';
+    }
+    return null;
+  }
+
+  String? validateEmail(String? input) {
+    if (input == null || input.isEmpty) {
+      return 'Bitte E-Mail eingeben';
+    }
+    return null;
   }
 }

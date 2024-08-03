@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: SplashScreen(), // Splashscreen als Startseite festlegen
     );
   }
 }
 
 class SplashScreen extends StatelessWidget {
+  const SplashScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,9 +23,9 @@ class SplashScreen extends StatelessWidget {
           children: [
             // Logo oder Bild des Splashscreens
             Image.asset('assets/logo.png'),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Ladebalken oder Text
-            CircularProgressIndicator(),
+            const CircularProgressIndicator(),
           ],
         ),
       ),

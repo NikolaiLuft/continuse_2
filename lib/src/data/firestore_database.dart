@@ -9,17 +9,20 @@ class FirestoreDatabase implements DatabaseRepository {
 
   @override
   void addProduct(Product product) {
-    // TODO: implement addProduct
+    firebaseFirestore.collection('products').add(product.toMap());
   }
 
   @override
   void deleteProduct(Product product) {
-    // TODO: implement deleteProduct
+    firebaseFirestore.collection('products').doc(product.id).delete();
   }
 
   @override
-  List<Product> getAllProduct() {
-    // TODO: implement getAllProduct
-    throw UnimplementedError();
+  Future<List<Product>> getAllProduct() async {
+    QuerySnapshot snapshot =
+        await firebaseFirestore.collection('Products').get();
+    return snapshot.docs
+        .map((doc) => Product.fromMap(doc.data() as Map<String, dynamic>))
+        .toList();
   }
 }

@@ -1,5 +1,4 @@
 import 'package:continuse_2/src/data/auth_repository.dart';
-import 'package:continuse_2/src/data/mock_database.dart';
 import 'package:continuse_2/src/features/authentification/presentation/registration.dart';
 import 'package:continuse_2/src/features/home/presentation/homescreen.dart';
 import 'package:flutter/material.dart';
@@ -163,7 +162,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => HomeScreen(),
+                                builder: (context) => const HomeScreen(),
                               ));
                         },
                         style: ElevatedButton.styleFrom(
@@ -308,7 +307,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   context,
                                   MaterialPageRoute(
                                       builder: ((context) =>
-                                          RegistrationScreen(MockDatabase()))));
+                                          const RegistrationScreen())));
                             },
                             child: const Text("Registrieren",
                                 style: TextStyle(

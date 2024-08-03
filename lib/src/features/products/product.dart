@@ -1,5 +1,5 @@
 class Product {
-  // Attributen
+  // Attribute
   String id;
   String sellerUid;
   String title;
@@ -8,7 +8,7 @@ class Product {
   bool isSwap;
   // Reservierungsstatus
   bool isReserved;
-  List<Image> pictures;
+  List<String> pictures;
 
   // Konstruktor
   Product({
@@ -21,12 +21,29 @@ class Product {
     required this.pictures,
   });
 
-  toMap() {}
+  // Methode zum Konvertieren eines Produkts in ein Map
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'sellerUid': sellerUid,
+      'title': title,
+      'description': description,
+      'isSwap': isSwap,
+      'isReserved': isReserved,
+      'pictures': pictures,
+    };
+  }
 
-  static fromMap(x) {}
+  // Factory-Methode zum Erstellen eines Produkts aus einem Map
+  factory Product.fromMap(Map<String, dynamic> map) {
+    return Product(
+      id: map['id'],
+      sellerUid: map['sellerUid'],
+      title: map['title'],
+      description: map['description'],
+      isSwap: map['isSwap'],
+      isReserved: map['isReserved'],
+      pictures: List<String>.from(map['pictures'] ?? []),
+    );
+  }
 }
-
-// Klasse gibts dann in Flutter
-class Image {}
-
-// TODO Exkurs optionale params

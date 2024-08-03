@@ -1,11 +1,11 @@
-import 'package:continuse_2/src/data/mock_database.dart';
+import 'package:continuse_2/src/data/database_repository.dart';
 import 'package:continuse_2/src/features/products/product.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+// Stelle sicher, dass der Pfad korrekt ist
 
 class NewProductScreen extends StatefulWidget {
-  MockDatabase mockDatabase;
-  Function callback;
-  NewProductScreen(this.mockDatabase, this.callback, {super.key});
+  const NewProductScreen({super.key});
 
   @override
   State<NewProductScreen> createState() => _NewProductScreenState();
@@ -17,37 +17,37 @@ class _NewProductScreenState extends State<NewProductScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: Colors.black),
-            onPressed: () {
-              setState(() {
-                widget.callback();
-                Navigator.of(context).pop();
-              });
-            }),
-        title: Text("Neues Produkt"),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+        title: const Text("Neues Produkt"),
         centerTitle: true,
       ),
       body: Column(
         children: [
           ElevatedButton(
             onPressed: () {
-              setState(() {
-                widget.mockDatabase.addProduct(
-                  Product(
-                    id: '3',
-                    sellerUid: '1',
-                    title: "Runder Reifen",
-                    description: "Wie neu",
-                    isSwap: true,
-                    isReserved: false,
-                    pictures: [],
-                  ),
-                );
-                widget.callback();
-                Navigator.of(context).pop();
-              });
+              final database = context.read<DatabaseRepository>();
+
+              // Produkt hinzufügen
+              database.addProduct(
+                Product(
+                  id: '3',
+                  sellerUid: '1',
+                  title: "Runder Reifen",
+                  description: "Wie neu",
+                  isSwap: true,
+                  isReserved: false,
+                  pictures: [],
+                ),
+              );
+
+              // Zurück zur vorherigen Seite navigieren
+              Navigator.of(context).pop();
             },
-            child: Text("Hinzufügen"),
+            child: const Text("Hinzufügen"),
           ),
         ],
       ),
