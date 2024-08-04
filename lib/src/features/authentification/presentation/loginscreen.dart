@@ -58,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       textBaseline: TextBaseline.alphabetic,
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 6, 6, 6),
+                      color: Color.fromARGB(174, 0, 0, 0),
                     ),
                   ),
                   const SizedBox(height: 10),
@@ -98,8 +98,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       await context
                           .read<AuthRepository>()
                           .loginWithEmailAndPassword(
-                            mailController.text.trim(),
-                            _pwController.text.trim(),
+                            mailController.text,
+                            _pwController.text,
                           );
                       // Navigate to the HomeScreen on successful login
                       Navigator.pushReplacement(
@@ -113,7 +113,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       });
                     } catch (e) {
                       setState(() {
-                        errorMessage = e.toString();
                         showCreateAccountNotification = true;
                       });
                     }
@@ -144,10 +143,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: 10),
                 SocialLoginButton(
-                  icon: const Icon(
-                    Icons.image,
-                    color: Colors.black,
-                    size: 30,
+                  icon: Image.asset(
+                    "assets/googleimage.png",
+                    height: 22,
                   ),
                   text: "Sign in with Google",
                 ),

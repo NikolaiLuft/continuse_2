@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class RegistrationsText extends StatelessWidget {
   String text;
   String? hinttext;
   double? width;
   TextStyle? hintstyle;
+  TextEditingController controller;
+  String? Function(String?)? validator;
+  AutovalidateMode? autovalidateMode;
+  TextInputType? keybordtype;
 
-  RegistrationsText({
-    super.key,
-    required this.text,
-    this.width,
-    this.hintstyle,
-    this.hinttext,
-  });
+  RegistrationsText(
+      {super.key,
+      required this.text,
+      this.hinttext,
+      this.width,
+      this.hintstyle,
+      required this.controller,
+      this.validator,
+      this.autovalidateMode,
+      this.keybordtype});
 
   @override
   Widget build(BuildContext context) {
@@ -39,17 +47,21 @@ class RegistrationsText extends StatelessWidget {
               ? MediaQuery.of(context).size.width * 0.95
               : MediaQuery.of(context).size.width * width!,
           child: TextFormField(
+              controller: controller,
+              validator: validator,
+              keyboardType: keybordtype,
+              autovalidateMode: autovalidateMode,
               decoration: InputDecoration(
-            fillColor: const Color(0xFFD3D3D3),
-            contentPadding:
-                const EdgeInsets.only(top: 0.0, left: 10, right: 10),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(11.0),
-            ),
-            filled: true,
-            hintText: hinttext,
-            hintStyle: hintstyle,
-          )),
+                fillColor: const Color(0xFFD3D3D3),
+                contentPadding:
+                    const EdgeInsets.only(top: 0.0, left: 10, right: 10),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(11.0),
+                ),
+                filled: true,
+                hintText: hinttext,
+                hintStyle: hintstyle,
+              )),
         )
       ]),
     );

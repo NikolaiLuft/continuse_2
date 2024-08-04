@@ -1,4 +1,5 @@
 import 'package:continuse_2/src/features/authentification/presentation/loginscreen.dart';
+import 'package:continuse_2/src/features/authentification/presentation/widget/continusebutton.dart';
 import 'package:continuse_2/src/features/authentification/presentation/widget/logowidget.dart';
 import 'package:continuse_2/src/features/authentification/presentation/widget/registrationtext.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,37 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
+  late TextEditingController vornameController;
+  late TextEditingController nachnameController;
+  late TextEditingController geburtsdatumController;
+  late TextEditingController mailController;
+  late TextEditingController pronounsController;
+  late TextEditingController plzController;
+  late TextEditingController wohnortController;
+
+  @override
+  void initState() {
+    super.initState();
+    vornameController = TextEditingController();
+    nachnameController = TextEditingController();
+    geburtsdatumController = TextEditingController();
+    mailController = TextEditingController();
+    pronounsController = TextEditingController();
+    plzController = TextEditingController();
+    wohnortController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    vornameController.dispose();
+    nachnameController.dispose();
+    geburtsdatumController.dispose();
+    mailController.dispose();
+    plzController.dispose();
+    wohnortController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,19 +68,30 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     decorationThickness: 1.35)),
             Padding(
               padding: const EdgeInsets.only(left: 16, right: 16, bottom: 8),
-              child: RegistrationsText(text: 'Vorname'),
+              child: RegistrationsText(
+                controller: vornameController,
+                text: '  Vorname',
+                validator: validateVn,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+              ),
             ),
-
             Padding(
               padding: const EdgeInsets.only(left: 16, right: 16, bottom: 8),
-              child: RegistrationsText(text: 'Nachname'),
+              child: RegistrationsText(
+                text: 'Nachname',
+                controller: nachnameController,
+                validator: validateNn,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+              ),
             ),
-
             Padding(
               padding: const EdgeInsets.only(left: 16, right: 16, bottom: 8),
               child: RegistrationsText(
                 text: 'Geburtsdatum',
                 hinttext: 'TT.MM.JJJJ',
+                controller: geburtsdatumController,
+                validator: validateGb,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
                 hintstyle: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
@@ -56,34 +99,53 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 ),
               ),
             ),
-            SizedBox(
-              height: 55,
-              child: Row(children: [
-                RegistrationsText(
-                  text: 'PLZ',
-                  width: 0.25,
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                RegistrationsText(
-                  text: 'Wohnort',
-                  width: 0.69,
-                ),
-              ]),
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 13.4,
+              ),
+              child: SizedBox(
+                height: 55,
+                child: Row(children: [
+                  RegistrationsText(
+                    text: 'PLZ',
+                    controller: plzController,
+                    validator: validatePlz,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    width: 0.25,
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  RegistrationsText(
+                    text: 'Wohnort',
+                    controller: wohnortController,
+                    validator: validateWohnort,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    width: 0.65,
+                  ),
+                ]),
+              ),
             ),
             const SizedBox(height: 5),
-
             const SizedBox(height: 10),
-            RegistrationsText(text: 'E-Mail Adresse'),
+            Padding(
+              padding: const EdgeInsets.only(left: 16, right: 16, bottom: 8),
+              child: RegistrationsText(
+                text: 'E-Mail Adresse',
+                controller: mailController,
+                validator: validateEmail,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                width: 0.92,
+              ),
+            ),
             const SizedBox(height: 5),
-            const SizedBox(height: 200),
-            // ContinuseButton(
-            //   navigationWidget: PasswortAddScreen(),
-            //   text: "Passwort erstellen",
-            //   width: 247,
-            //   height: 50,
-            // ),
+            const SizedBox(height: 180),
+            ContinuseButton(
+              // navigationWidget: PasswortAddScreen(),
+              text: "Passwort erstellen",
+              width: 247,
+              height: 40,
+            ),
             const SizedBox(height: 10),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
               TextButton(
@@ -148,6 +210,20 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   String? validateEmail(String? input) {
     if (input == null || input.isEmpty) {
       return 'Bitte E-Mail eingeben';
+    }
+    return null;
+  }
+
+  String? validatePlz(String? input) {
+    if (input == null || input.isEmpty) {
+      return 'Bitte PLZ eingeben';
+    }
+    return null;
+  }
+
+  String? validateWohnort(String? input) {
+    if (input == null || input.isEmpty) {
+      return 'Bitte Wohnort eingeben';
     }
     return null;
   }
