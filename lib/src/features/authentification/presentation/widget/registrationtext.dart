@@ -1,6 +1,3 @@
-
-
-
 import 'package:flutter/material.dart';
 
 class RegistrationsText extends StatelessWidget {
@@ -11,7 +8,8 @@ class RegistrationsText extends StatelessWidget {
 
   RegistrationsText({
     super.key,
-    required this.text,this.width,
+    required this.text,
+    this.width,
     this.hintstyle,
     this.hinttext,
   });
@@ -37,11 +35,14 @@ class RegistrationsText extends StatelessWidget {
         ),
         SizedBox(
           height: 30,
-          width:width==null? MediaQuery.of(context).size.width*0.95:MediaQuery.of(context).size.width*width!,
+          width: width == null
+              ? MediaQuery.of(context).size.width * 0.95
+              : MediaQuery.of(context).size.width * width!,
           child: TextFormField(
               decoration: InputDecoration(
             fillColor: const Color(0xFFD3D3D3),
-            contentPadding: const EdgeInsets.only(top: 0.0, left: 10, right: 10),
+            contentPadding:
+                const EdgeInsets.only(top: 0.0, left: 10, right: 10),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(11.0),
             ),
