@@ -64,7 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 10),
                 ],
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextButton(
                       onPressed: () {
