@@ -1,25 +1,25 @@
+import 'package:continuse_2/src/data/auth_repository.dart';
+import 'package:continuse_2/src/features/authentification/presentation/loginscreen.dart';
+import 'package:continuse_2/src/features/home/presentation/homescreen.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+class App extends StatelessWidget {
+  const App({super.key});
 
-// class MainApp extends StatelessWidget {
-//   const MainApp({super.key});
+  @override
+  Widget build(BuildContext context) {
+    const loginKey = ValueKey('loginScreen');
+    const homeKey = ValueKey('homeScreen');
 
-//   @override
-//   Widget build(BuildContext context) {
-
-//     DatabaseRepository databaseRepository = MockDatabase(
-
-//       return MaterialApp(
-//     //     theme: FlexThemeData.light(scheme: FlexScheme.blue),
-//     //     darkTheme: FlexThemeData.dark(scheme: FlexScheme.blue),
-//     //     themeMode: ThemeMode.light,
-//     //     home: LoginScreen(),
-//     //     //OverviewScreen(DatabaseRepository),
-//     //   )
-//     // ),
-//     // return const MaterialApp(
-//     //   home: LoginScreen(
-        
-//       ),
-//     );
-//   }
-// }
+    return StreamBuilder(
+        stream: context.read<AuthRepository>().authStateChanges(),
+        builder: (context, snapshot) {
+          final user = snapshot.data;
+          return MaterialApp(
+            key: user == null ? loginKey : homeKey,
+            home: user == null ? const LoginScreen() : const HomeScreen(),
+          );
+        });
+  }
+}

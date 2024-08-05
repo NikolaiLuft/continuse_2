@@ -13,6 +13,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late Future<List<Product>> productlist;
   void callback() {
     setState(() {
       print("Test");
@@ -20,15 +21,19 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    final database = context.watch<DatabaseRepository>();
+  void initState() {
+    super.initState();
+    productlist = context.read<DatabaseRepository>().getAllProduct();
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home Screen'),
       ),
-      body: FutureBuilder<List<Product>>(
-        future: database.getAllProduct(),
+      body: FutureBuilder(
+        future: productlist,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());

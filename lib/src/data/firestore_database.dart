@@ -19,10 +19,7 @@ class FirestoreDatabase implements DatabaseRepository {
 
   @override
   Future<List<Product>> getAllProduct() async {
-    QuerySnapshot snapshot =
-        await firebaseFirestore.collection('Products').get();
-    return snapshot.docs
-        .map((doc) => Product.fromMap(doc.data() as Map<String, dynamic>))
-        .toList();
+    final snapshot = await firebaseFirestore.collection('Products').get();
+    return snapshot.docs.map((doc) => Product.fromMap(doc.data())).toList();
   }
 }
