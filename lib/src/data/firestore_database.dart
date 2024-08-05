@@ -9,12 +9,12 @@ class FirestoreDatabase implements DatabaseRepository {
 
   @override
   void addProduct(Product product) {
-    firebaseFirestore.collection('products').add(product.toMap());
+    firebaseFirestore.collection('Products').add(product.toMap());
   }
 
   @override
   void deleteProduct(Product product) {
-    firebaseFirestore.collection('products').doc(product.id).delete();
+    firebaseFirestore.collection('Products').doc(product.id).delete();
   }
 
   @override
