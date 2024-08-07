@@ -8,16 +8,13 @@ class DetailScreenProduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(),
         body: SizedBox(
-      width: MediaQuery.of(context).size.width,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const Text("Image"),
-          Text(product.title),
-          Text(product.description)
-        ],
-      ),
-    ));
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [Text(product.title), Text(product.description)],
+          ),
+        ));
   }
 }

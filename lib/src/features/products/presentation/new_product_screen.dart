@@ -1,8 +1,4 @@
-import 'package:continuse_2/src/data/database_repository.dart';
-import 'package:continuse_2/src/features/home/presentation/homescreen.dart';
-import 'package:continuse_2/src/features/products/product.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 // Stelle sicher, dass der Pfad korrekt ist
 
 class NewProductScreen extends StatefulWidget {
@@ -13,62 +9,69 @@ class NewProductScreen extends StatefulWidget {
 }
 
 class _NewProductScreenState extends State<NewProductScreen> {
+  late TextEditingController _productNameController;
+  late TextEditingController _descriptionController;
+  late bool isSwap;
+  late bool isReserved;
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _productNameController = TextEditingController();
+    _descriptionController = TextEditingController();
+    isSwap = false;
+    isReserved = false;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
+        appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back, color: Colors.black),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+          title: const Text("Neues Produkt"),
+          centerTitle: true,
         ),
-        title: const Text("Neues Produkt"),
-        centerTitle: true,
-      ),
-      body: Column(
-        children: [
-          Form(
-            child: Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  final database = context
-                      .read<DatabaseRepository>()
-                      .addProduct(Product(
-                          id: '3',
-                          sellerUid: '1',
-                          title: "Runder Reifen",
-                          description: "Wie neu",
-                          isSwap: true,
-                          isReserved: false,
-                          pictures: []));
-
-                  // Produkt hinzufügen
-                  // database.addProduct(
-                  //   Product(
-                  //     id: '3',
-                  //     sellerUid: '1',
-                  //     title: "Runder Reifen",
-                  //     description: "Wie neu",
-                  //     isSwap: true,
-                  //     isReserved: false,
-                  //     pictures: [],
-                  //   ),
-                  // );
-
-                  // Zurück zur vorherigen Seite navigieren
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const HomeScreen(),
-                      ));
-                },
-                child: const Text("Hinzufügen"),
-              ),
-            ),
-          )
-        ],
-      ),
-    );
+        body: Form(
+            child: Column(
+          children: [
+            TextFormField(controller: _productNameController),
+            Switch(
+                value: isSwap,
+                onChanged: (isSwap) {
+                  setState(() {
+                    isSwap = !isSwap;
+                  });
+                })
+          ],
+        )));
   }
 }
+
+// // ElevatedButton(
+// //                     onPressed: () {
+// //                       final database = context
+// //                           .read<DatabaseRepository>()
+// //                           .addProduct(Product(
+// //                               id: '3',
+// //                               sellerUid: '1',
+// //                               title: "Runder Reifen",
+// //                               description: "Wie neu",
+// //                               isSwap: true,
+// //                               isReserved: false,
+// //                               pictures: []));
+             
+// //                       // Zurück zur vorherigen Seite navigieren
+// //                       Navigator.pop(context);
+// //                     },
+// //                     child: const Text("Hinzufügen"),)
+// //                   ),
