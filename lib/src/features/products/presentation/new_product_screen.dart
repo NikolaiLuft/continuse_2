@@ -42,18 +42,23 @@ class _NewProductScreenState extends State<NewProductScreen> {
           centerTitle: true,
         ),
         body: Form(
-            child: Column(
-          children: [
-            TextFormField(controller: _productNameController),
-            Switch(
-                value: isSwap,
-                onChanged: (isSwap) {
-                  setState(() {
-                    isSwap = !isSwap;
-                  });
-                })
-          ],
-        )));
+            child: Column(children: [
+          TextFormField(controller: _productNameController),
+          Switch(
+              value: isSwap,
+              onChanged: (value) {
+                setState(() {
+                  isSwap = value;
+                });
+              }),
+          Switch(
+              value: isReserved,
+              onChanged: (value) {
+                setState(() {
+                  isReserved = value;
+                });
+              }),
+        ])));
   }
 }
 
