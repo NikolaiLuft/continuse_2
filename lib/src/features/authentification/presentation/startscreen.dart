@@ -19,15 +19,7 @@ class _StartScreenState extends State<StartScreen> {
         appBar: AppBar(
             backgroundColor: Colors.white,
             leading: IconButton(
-                onPressed: () {
-                  // Navigator.pushReplacement(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //       builder: (context) => ViewBankaccount(
-                  //             databaseRepository: widget.databaseRepository,
-                  //           )),
-                  // );
-                },
+                onPressed: () {},
                 icon: const Icon(
                   Icons.arrow_back,
                   size: 24,

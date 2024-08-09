@@ -1,4 +1,6 @@
+import 'package:continuse_2/src/data/auth_repository.dart';
 import 'package:continuse_2/src/data/database_repository.dart'; // Anpassen des Pfades zur DatabaseRepository
+import 'package:continuse_2/src/features/authentification/presentation/loginscreen.dart';
 import 'package:continuse_2/src/features/products/presentation/detail_screen_product.dart';
 import 'package:continuse_2/src/features/products/presentation/new_product_screen.dart';
 import 'package:continuse_2/src/features/products/product.dart';
@@ -14,6 +16,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late Future<List<Product>> productlist;
+
   void callback() {
     setState(() {
       print("Test");
@@ -31,6 +34,23 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home Screen'),
+        leadingWidth: 200,
+        actions: [
+          IconButton(
+            onPressed: () async {
+              // Abmeldung und Navigation zur Login-Seite
+              await context.read<AuthRepository>().logout();
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const LoginScreen()),
+              );
+            },
+            icon: const Icon(
+              Icons.logout,
+              size: 24,
+            ),
+          ),
+        ],
       ),
       body: FutureBuilder(
         future: productlist,

@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:continuse_2/firebase_options.dart';
-import 'package:continuse_2/src/app.dart';
 import 'package:continuse_2/src/data/auth_repository.dart';
 import 'package:continuse_2/src/data/database_repository.dart';
 import 'package:continuse_2/src/data/firestore_database.dart';
+import 'package:continuse_2/src/features/authentification/presentation/loginscreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -29,12 +29,12 @@ void main() async {
   );
 }
 
-// class App extends StatelessWidget {
-//   const App({super.key});
-//   @override
-//   Widget build(BuildContext context) {
-//     return const MaterialApp(
-//       home: LoginScreen(),
-//     );
-//   }
-// }
+class App extends StatelessWidget {
+  const App({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: LoginScreen(),
+    );
+  }
+}
