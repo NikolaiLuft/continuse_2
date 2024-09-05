@@ -1,5 +1,3 @@
-import 'package:flutter/src/material/app.dart';
-
 import '../domain/user.dart';
 import '../features/products/product.dart';
 import 'database_repository.dart';
@@ -44,8 +42,6 @@ class MockDatabase implements DatabaseRepository {
       pictures: [],
     ),
   ];
-
-  MockDatabase(MaterialApp materialApp);
 
   @override
   void addProduct(Product product) {
