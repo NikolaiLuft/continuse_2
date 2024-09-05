@@ -1,4 +1,4 @@
-import '../domain/user.dart';
+import '../features/authentification/domain/user.dart';
 import '../features/products/product.dart';
 import 'database_repository.dart';
 
