@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Prounouns extends StatefulWidget {
-  String text;
-  Prounouns({super.key, required this.text});
+  final String text;
+  const Prounouns({super.key, required this.text});
 
   @override
   State<Prounouns> createState() => _ProunounsState();
