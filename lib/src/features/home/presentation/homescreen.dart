@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void callback() {
     setState(() {
-      print("Test");
+      debugPrint("Test");
     });
   }
 
