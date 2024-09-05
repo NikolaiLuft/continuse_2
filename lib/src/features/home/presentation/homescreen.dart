@@ -40,6 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: () async {
               // Abmeldung und Navigation zur Login-Seite
               await context.read<AuthRepository>().logout();
+              if (!context.mounted) return;
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => const LoginScreen()),
