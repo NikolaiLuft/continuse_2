@@ -24,16 +24,16 @@ class _StartScreenState extends State<StartScreen> {
                   Icons.arrow_back,
                   size: 24,
                 ))),
-        body: SingleChildScrollView(
+        body: const SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(10),
+            padding: EdgeInsets.all(10),
             child: Form(
               child: Column(
                 children: [
-                  const SizedBox(height: 0),
+                  SizedBox(height: 0),
                   LogoWidget(width: 250, height: 150),
-                  const SizedBox(height: 20),
-                  const Row(
+                  SizedBox(height: 20),
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [SizedBox(width: 10)],
                   ),
