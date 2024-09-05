@@ -1,6 +1,4 @@
-import 'package:flutter/src/material/app.dart';
-
-import '../domain/user.dart';
+import '../features/authentification/domain/user.dart';
 import '../features/products/product.dart';
 import 'database_repository.dart';
 
@@ -45,8 +43,6 @@ class MockDatabase implements DatabaseRepository {
     ),
   ];
 
-  MockDatabase(MaterialApp materialApp);
-
   @override
   void addProduct(Product product) {
     products.add(product);
@@ -59,7 +55,6 @@ class MockDatabase implements DatabaseRepository {
 
   @override
   Future<List<Product>> getAllProduct() {
-    // TODO: implement getAllProduct
-    throw UnimplementedError();
+    return Future.value(products);
   }
 }

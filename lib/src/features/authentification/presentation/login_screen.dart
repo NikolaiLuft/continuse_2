@@ -3,7 +3,7 @@ import 'package:continuse_2/src/features/authentification/presentation/registrat
 import 'package:continuse_2/src/features/authentification/presentation/widget/logowidget.dart';
 import 'package:continuse_2/src/features/authentification/presentation/widget/social_button.dart';
 import 'package:continuse_2/src/features/authentification/presentation/widget/textcontroller_login.dart';
-import 'package:continuse_2/src/features/home/presentation/homescreen.dart';
+import 'package:continuse_2/src/features/home/presentation/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -44,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               children: [
                 const SizedBox(height: 50),
-                LogoWidget(width: 250, height: 170),
+                const LogoWidget(width: 250, height: 170),
                 const SizedBox(height: 40),
                 TextFieldAuth(
                   mailController: mailController,
@@ -101,6 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             mailController.text,
                             _pwController.text,
                           );
+                      if (!context.mounted) return;
                       // Navigate to the HomeScreen on successful login
                       Navigator.pushReplacement(
                         context,

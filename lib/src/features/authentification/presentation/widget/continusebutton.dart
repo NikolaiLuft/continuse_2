@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class ContinuseButton extends StatelessWidget {
-  Widget? navigationWidget;
-  String text;
-  double height;
-  double width;
-  ContinuseButton(
+  final Widget? navigationWidget;
+  final String text;
+  final double height;
+  final double width;
+  const ContinuseButton(
       {super.key,
       this.navigationWidget,
       required this.text,

@@ -1,4 +1,4 @@
-import 'package:continuse_2/src/features/authentification/presentation/loginscreen.dart';
+import 'package:continuse_2/src/features/authentification/presentation/login_screen.dart';
 import 'package:continuse_2/src/features/authentification/presentation/widget/continusebutton.dart';
 import 'package:continuse_2/src/features/authentification/presentation/widget/logowidget.dart';
 import 'package:continuse_2/src/features/authentification/presentation/widget/registrationtext.dart';
@@ -50,7 +50,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         child: Form(
           child: Column(children: [
             const SizedBox(height: 55),
-            LogoWidget(width: 217, height: 150),
+            const LogoWidget(width: 217, height: 150),
             const SizedBox(height: 10),
             const Text('Registrieren',
                 style: TextStyle(
@@ -140,7 +140,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             ),
             const SizedBox(height: 5),
             const SizedBox(height: 180),
-            ContinuseButton(
+            const ContinuseButton(
               // navigationWidget: PasswortAddScreen(),
               text: "Passwort erstellen",
               width: 247,

@@ -10,7 +10,6 @@ class NewProductScreen extends StatefulWidget {
 
 class _NewProductScreenState extends State<NewProductScreen> {
   late TextEditingController _productNameController;
-  late TextEditingController _descriptionController;
   late bool isSwap;
   late bool isReserved;
 
@@ -23,7 +22,6 @@ class _NewProductScreenState extends State<NewProductScreen> {
   void initState() {
     super.initState();
     _productNameController = TextEditingController();
-    _descriptionController = TextEditingController();
     isSwap = false;
     isReserved = false;
   }

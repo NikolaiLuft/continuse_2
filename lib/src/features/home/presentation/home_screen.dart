@@ -1,6 +1,6 @@
 import 'package:continuse_2/src/data/auth_repository.dart';
 import 'package:continuse_2/src/data/database_repository.dart'; // Anpassen des Pfades zur DatabaseRepository
-import 'package:continuse_2/src/features/authentification/presentation/loginscreen.dart';
+import 'package:continuse_2/src/features/authentification/presentation/login_screen.dart';
 import 'package:continuse_2/src/features/products/presentation/detail_screen_product.dart';
 import 'package:continuse_2/src/features/products/presentation/new_product_screen.dart';
 import 'package:continuse_2/src/features/products/product.dart';
@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void callback() {
     setState(() {
-      print("Test");
+      debugPrint("Test");
     });
   }
 
@@ -40,6 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: () async {
               // Abmeldung und Navigation zur Login-Seite
               await context.read<AuthRepository>().logout();
+              if (!context.mounted) return;
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => const LoginScreen()),
