@@ -59,7 +59,6 @@ class MockDatabase implements DatabaseRepository {
 
   @override
   Future<List<Product>> getAllProduct() {
-    // TODO: implement getAllProduct
-    throw UnimplementedError();
+    return Future.value(products);
   }
 }
