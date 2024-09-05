@@ -3,7 +3,7 @@ import 'package:continuse_2/firebase_options.dart';
 import 'package:continuse_2/src/data/auth_repository.dart';
 import 'package:continuse_2/src/data/database_repository.dart';
 import 'package:continuse_2/src/data/firestore_database.dart';
-import 'package:continuse_2/src/features/authentification/presentation/loginscreen.dart';
+import 'package:continuse_2/src/features/authentification/presentation/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

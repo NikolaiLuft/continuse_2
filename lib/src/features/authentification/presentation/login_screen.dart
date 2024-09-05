@@ -3,7 +3,7 @@ import 'package:continuse_2/src/features/authentification/presentation/registrat
 import 'package:continuse_2/src/features/authentification/presentation/widget/logowidget.dart';
 import 'package:continuse_2/src/features/authentification/presentation/widget/social_button.dart';
 import 'package:continuse_2/src/features/authentification/presentation/widget/textcontroller_login.dart';
-import 'package:continuse_2/src/features/home/presentation/homescreen.dart';
+import 'package:continuse_2/src/features/home/presentation/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

@@ -1,6 +1,6 @@
 import 'package:continuse_2/src/data/auth_repository.dart';
 import 'package:continuse_2/src/data/database_repository.dart'; // Anpassen des Pfades zur DatabaseRepository
-import 'package:continuse_2/src/features/authentification/presentation/loginscreen.dart';
+import 'package:continuse_2/src/features/authentification/presentation/login_screen.dart';
 import 'package:continuse_2/src/features/products/presentation/detail_screen_product.dart';
 import 'package:continuse_2/src/features/products/presentation/new_product_screen.dart';
 import 'package:continuse_2/src/features/products/product.dart';

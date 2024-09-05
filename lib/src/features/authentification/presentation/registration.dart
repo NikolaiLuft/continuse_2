@@ -1,4 +1,4 @@
-import 'package:continuse_2/src/features/authentification/presentation/loginscreen.dart';
+import 'package:continuse_2/src/features/authentification/presentation/login_screen.dart';
 import 'package:continuse_2/src/features/authentification/presentation/widget/continusebutton.dart';
 import 'package:continuse_2/src/features/authentification/presentation/widget/logowidget.dart';
 import 'package:continuse_2/src/features/authentification/presentation/widget/registrationtext.dart';

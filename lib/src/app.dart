@@ -1,6 +1,6 @@
 import 'package:continuse_2/src/data/auth_repository.dart';
-import 'package:continuse_2/src/features/authentification/presentation/loginscreen.dart';
-import 'package:continuse_2/src/features/home/presentation/homescreen.dart';
+import 'package:continuse_2/src/features/authentification/presentation/login_screen.dart';
+import 'package:continuse_2/src/features/home/presentation/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
